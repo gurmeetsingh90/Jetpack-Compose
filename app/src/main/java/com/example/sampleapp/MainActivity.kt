@@ -22,6 +22,9 @@ import com.example.sampleapp.compose.GreetingButton
 import com.example.sampleapp.compose.MessageCard
 import com.example.sampleapp.model.Message
 import com.example.sampleapp.ui.theme.SampleAppTheme
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +43,11 @@ class MainActivity : ComponentActivity() {
                 GreetingButton()
             }
         }
+        AppCenter.start(
+            application, "889accac-ff0e-49a1-8451-936021b4108b",
+            Analytics::class.java, Crashes::class.java
+        )
+
     }
 }
 
